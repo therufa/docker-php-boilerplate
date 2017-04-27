@@ -1,0 +1,54 @@
+version: "3"
+services:
+
+  php-fpm:
+    container_name: boi_php
+    build:
+      context: ./php-fpm
+    volumes:
+      - ${APP_PATH}:/var/www
+    expose:
+      - "9000"
+    networks:
+      - backend
+
+  mysql:
+    container_name: boi_mysql
+    build:
+      context: ./mysql
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - ${DATA_PATH}/mysql:/var/lib/mysql
+    ports:
+      - "${MYSQL_PORT}:3306"
+    networks:
+      - backend
+
+  nginx:
+    container_name: boi_nginx
+    build:
+      context: ./nginx
+    volumes:
+      - ${APP_PATH}:/var/www
+      - ./nginx/logs:/var/log/nginx
+      - ./nginx/sites-available:/etc/nginx/sites-available
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - php-fpm
+    networks:
+      - frontend
+      - backend
+    links:
+      - php-fpm
+
+networks:
+  frontend:
+    driver: "bridge"
+  backend:
+    driver: "bridge"
