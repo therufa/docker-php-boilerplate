@@ -17,8 +17,10 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
+
         <h1>PHP dev boilerplate for Docker</h1>
         <h2>How to use</h2>
+
         <p>
           Create a `.env` from env-template in ./env using the following shell command:
         </p>
@@ -40,9 +42,42 @@
         <p>
           Enjoy.
         </p>
+
         <h2>More details</h2>
         <p>
           <a href="https://github.com/therufa/docker-php-boilerplate">https://github.com/therufa/docker-php-boilerplate</a>
+        </p>
+
+        <h2>Configuration</h2>
+
+        <p>
+          The environment can be configured within the <b>.env</b> file, which is a prerequisite to run the application.
+          To create this, copy or rename the <b>env-template</b> file to <b>.env</b>
+        </p>
+
+        <h3>Constants</h3>
+        <h4>APP_PATH</h4>
+
+        <p>
+          Defines the relative or absolute path to the application you desire to run.
+        </p>
+
+        <h4>ENV_PATH</h4>
+
+        <p>
+          Deines the path of the docker container configuration.
+        </p>
+
+        <h4>DATA_PATH</h4>
+
+        <p>
+          Defines where persistent data should be stored. Right now, this is used for mysql only.
+        </p>
+
+        <h4>MySQL Constants</h4>
+
+        <p>
+          These constants are prefixed with <b>MYSQL_</b>, followed by database, username, password, port, etc...
         </p>
       </div>
     </div>
