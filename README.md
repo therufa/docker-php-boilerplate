@@ -20,3 +20,26 @@ Thats it. The boilerplate is running. Now place your php files inside the `./app
 
 
 Enjoy.
+
+# Configuration
+
+The environment can be configured within the **.env** file, which is a prerequisite to run the application.  
+To create this, copy or rename the **env-template** file to **.env**.
+
+## Constants
+
+### APP_PATH
+
+Defines the relative or absolute path to the application you desire to run.
+
+### ENV_PATH
+
+Defines the path of the docker container configuration.
+
+### DATA_PATH
+
+Defines where persistent data should be stored. Right now, this is used for mysql only.
+
+### MySQL Constants
+
+These constants are prefixed with **MYSQL_**, followed by database, username, password, port, etc...
