@@ -1,1 +1,53 @@
-docker php development boilerplate
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Docker PHP bootstrapper</title>
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <style rel="stylesheet">
+    code {
+      display: block;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>PHP dev boilerplate for Docker</h1>
+        <h2>How to use</h2>
+        <p>
+          Create a `.env` from env-template in ./env using the following shell command:
+        </p>
+        <code>
+          cp ./env/env-template ./env/.env
+        </code>
+        <p>
+          You can change the environment config of the for the docker setup inside the .env file, any time.
+        </p>
+        <p>
+          Then simply type into your shell:
+        </p>
+        <code>
+          docker-compose up
+        </code>
+        <p>
+          Thats it. The boilerplate is running. Now place your php files inside the `./app` folder, and browse for them.
+        </p>
+        <p>
+          Enjoy.
+        </p>
+        <h2>More detail</h2>
+        <p>
+          <a href="https://github.com/therufa/docker-php-boilerplate">https://github.com/therufa/docker-php-boilerplate</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
