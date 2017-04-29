@@ -4,7 +4,7 @@ services:
   php-fpm:
     container_name: boi_php
     build:
-      context: ./php-fpm
+      context: ./${ENV_PATH}/php-fpm
     volumes:
       - ${APP_PATH}:/var/www
     expose:
@@ -15,7 +15,7 @@ services:
   mysql:
     container_name: boi_mysql
     build:
-      context: ./mysql
+      context: ./${ENV_PATH}/mysql
     environment:
       - MYSQL_DATABASE=${MYSQL_DATABASE}
       - MYSQL_USER=${MYSQL_USER}
@@ -31,11 +31,11 @@ services:
   nginx:
     container_name: boi_nginx
     build:
-      context: ./nginx
+      context: ./${ENV_PATH}/nginx
     volumes:
       - ${APP_PATH}:/var/www
-      - ./nginx/logs:/var/log/nginx
-      - ./nginx/sites-available:/etc/nginx/sites-available
+      - ${ENV_PATH}/nginx/logs:/var/log/nginx
+      - ${ENV_PATH}/nginx/sites-available:/etc/nginx/sites-available
     ports:
       - "80:80"
       - "443:443"

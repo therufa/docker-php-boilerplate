@@ -1,4 +1,5 @@
-APP_PATH=../app
+APP_PATH=./app
+ENV_PATH=./docker-env
 DATA_PATH=/tmp
 
 MYSQL_DATABASE='dev_db'
