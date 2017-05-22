@@ -2,7 +2,6 @@ version: "3"
 services:
 
   php-fpm:
-    container_name: boi_php
     build:
       context: ${ENV_PATH}/php-fpm
     volumes:
@@ -13,7 +12,6 @@ services:
       - backend
 
   mysql:
-    container_name: boi_mysql
     build:
       context: ${ENV_PATH}/mysql
     environment:
@@ -29,7 +27,6 @@ services:
       - backend
 
   nginx:
-    container_name: boi_nginx
     build:
       context: ${ENV_PATH}/nginx
     volumes:
@@ -37,8 +34,8 @@ services:
       - ${ENV_PATH}/nginx/logs:/var/log/nginx
       - ${ENV_PATH}/nginx/sites-available:/etc/nginx/sites-available
     ports:
-      - "80:80"
-      - "443:443"
+      - "${NGINX_HTTP_PORT}:80"
+      - "${NGINX_HTTPS_PORT}:443"
     depends_on:
       - php-fpm
     networks:
